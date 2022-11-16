@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Battleship/Battleship.vcxproj.filters
+/Battleship/Battleship.vcxproj
