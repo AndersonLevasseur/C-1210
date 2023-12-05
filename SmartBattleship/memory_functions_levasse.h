@@ -5,5 +5,6 @@ using namespace std;
 
 void   initMemoryLevasse(ComputerMemory &memory);
 void   updateMemoryLevasse(int row, int col, int result, ComputerMemory &memory);
-string smartMoveLevasse(const ComputerMemory &memory);
+string smartMoveLevasse(
+	ComputerMemory &memory);
 

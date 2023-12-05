@@ -13,8 +13,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
-#include <curses.h>
-#include <kasbs.h>
+#include "curses.h"
+#include "kasbs.h"
 
 using namespace std;
 

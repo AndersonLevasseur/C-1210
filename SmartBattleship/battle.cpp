@@ -4,7 +4,7 @@
 
 #include "battleship.h"
 #include "memory.h"                                                     // NEW
-#include "memory_functions_NNNN.h"                                      // NEW
+#include "memory_functions_levasse.h"                                      // NEW
 
 int main() {
    Board          humanBoard, computerBoard;
@@ -17,12 +17,12 @@ int main() {
    int            checkValue, humanResult, computerResult;
 
    // Welcome the player to the game
-   welcome();
+   welcome(true);
 
    // Initialize the game boards
    initializeBoard(humanBoard);
    initializeBoard(computerBoard);
-	initMemoryNNNN(memory);                                              // NEW
+	initMemoryLevasse(memory);                                              // NEW
 
    // Play the game until one player has sunk the other's ships
    while (!done) {
@@ -52,16 +52,18 @@ int main() {
       }
 
       // get the computer's move
-      computerMove = smartMoveNNNN(memory);                           // CHANGED
+      computerMove = smartMoveLevasse(memory);                           // CHANGED
       while (checkMove(computerMove, humanBoard, computerRow, computerColumn)
              != VALID_MOVE) {
-         computerMove = randomMove();
+          writeMessage(15, 0, "Output " + computerMove + " is wrong");
+          pauseForEnter();
+         computerMove = smartMoveLevasse(memory);
       }
 
       // execute the moves on the respective boards
       humanResult    = playMove(humanRow, humanColumn, computerBoard);
       computerResult = playMove(computerRow, computerColumn, humanBoard);
-	updateMemoryNNNN(computerRow,    computerColumn,                // NEW
+	updateMemoryLevasse(computerRow,    computerColumn,                // NEW
                        computerResult, memory);                       // NEW
 
       // blank the screen to show the new game situation
@@ -80,8 +82,8 @@ int main() {
       writeResult(19, 0, computerResult, COMPUTER);
 
       // record any sunken ships
-      if (isItSunk(humanResult)) { numHumanShipsSunk++; }
-      if (isItSunk(computerResult)) { numComputerShipsSunk++; }
+      if (isASunk(humanResult)) { numHumanShipsSunk++; }
+      if (isASunk(computerResult)) { numComputerShipsSunk++; }
 
       // determine if we have a winner
       if (numHumanShipsSunk == 5 || numComputerShipsSunk == 5) {

@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="battle.cpp">
+    <ClCompile Include="memory_functions_levasse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="memory_functions_NNNN.cpp">
+    <ClCompile Include="battle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,5 +35,22 @@
     <ClInclude Include="memory_functions_NNNN.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="memory_functions_levasse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Battleship\curses.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Battleship\kasbs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Battleship\ncurses_dll.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="battleship.o">
+      <Filter>Resource Files</Filter>
+    </Object>
   </ItemGroup>
 </Project>

@@ -1,0 +1,3 @@
+[submodule "DigitalLogicSim"]
+	path = DigitalLogicSim
+	url = https://github.com/AndersonLevasseur/DigitalLogicSim.git

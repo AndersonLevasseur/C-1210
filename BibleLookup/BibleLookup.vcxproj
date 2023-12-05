@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Playground1\bibleLookup.cpp" />
+    <Text Include="Bible.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Bible.txt" />
+    <ClCompile Include="bibleLookup.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -70,7 +70,7 @@ int stringToNumConvert(string userString) {
 }
 
 
-string CapitalizeString(string inputStr)
+string capitalizeString(string inputStr)
 {
 	char targetChar;
 	vector <char> charStr;
@@ -90,10 +90,8 @@ string CapitalizeString(string inputStr)
 	return inputStr;
 }
 
-int main() {
+string bibleLookup(string bookName, string chapter, string verse) {
 
-	string bookName;
-	string chapter;
 	string verse;
 	string line;
 
@@ -102,6 +100,10 @@ int main() {
 	bool chapterFound = false;
 	bool verseFound = false;
 
+	passage = {
+
+	}
+	
 	ifstream fin;
 	ofstream fout;
 
@@ -111,25 +113,14 @@ int main() {
 
 	if (fin.fail()) {
 		throw "Error with fin";
-		cout << "Error with fin";
 	}
 
 	fout.open("verses.txt", ios::app);
 
 	if (fout.fail()) {
-		cout << "Error with fout";
+		throw "Error with fout";
 	}
 
-	cout << "Please enter book name\n";
-	getline(cin, bookName, '\n');
-
-	bookName = CapitalizeString(bookName);
-
-	cout << "\014Please enter chapter number\n";
-	cin >> chapter;
-
-	cout << "\014Please enter verse number\n";
-	cin >> verse;
 
 	while (!fin.eof() && !bookFound) {
 		getline(fin, line, '\n');
@@ -166,8 +157,8 @@ int main() {
 		}
 	}
 	else {
-		cout << "book not found\n";
-		cout << "you entered : " << bookName << endl;
+		string errorMess = "book not found\nyou entered : " + bookName;
+		throw errorMess;
 	}
 
 	if (chapterFound) {
@@ -187,8 +178,8 @@ int main() {
 		}
 	}
 	else {
-		cout << "chapter not found\n";
-		cout << "you entered : " << chapter << endl;
+		string errorMess = "chapter not found\nyou entered : " + bookName;
+		throw errorMess;
 		}
 
 	if (verseFound)
@@ -198,11 +189,30 @@ int main() {
 		fout << line.substr(verseDigNum);
 	}
 	else {
-		cout << "verse not found\n";
-		cout << "you entered : " << verse;
+		string errorMess = "verse not found\n you entered : " + verse;
+		throw errorMess;
 
 	}
+	return passage;
+}
+
+int main() {
+	string bookName;
+	string chapter;
+	string verse;
+
+	cout << "Please enter book name\n";
+	getline(cin, bookName, '\n');
+
+	bookName = capitalizeString(bookName);
+
+	cout << "\014Please enter chapter number\n";
+	cin >> chapter;
+
+	cout << "\014Please enter verse number\n";
+	cin >> verse;
 	
-	
+	bibleLookup(bookName, chapter, verse);
+
 		return 0;
 }

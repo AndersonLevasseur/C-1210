@@ -128,13 +128,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="battle.cpp" />
-    <ClCompile Include="memory_functions_NNNN.cpp" />
+    <ClCompile Include="memory_functions_levasse.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Battleship\curses.h" />
+    <ClInclude Include="..\Battleship\kasbs.h" />
+    <ClInclude Include="..\Battleship\ncurses_dll.h" />
     <ClInclude Include="battleship.h" />
     <ClInclude Include="battleship_type_definitions.h" />
     <ClInclude Include="memory.h" />
+    <ClInclude Include="memory_functions_levasse.h" />
     <ClInclude Include="memory_functions_NNNN.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="battleship.o" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
